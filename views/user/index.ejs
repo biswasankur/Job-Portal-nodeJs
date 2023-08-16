@@ -1,0 +1,185 @@
+<%-include('common/head')%>
+
+<body>
+
+    <%-include('common/nav')%>
+
+
+    <section id="intro">
+        <div class="carousel-item active">
+            <div class="carousel-background"><img src="imags/slider/slider1.jpg" alt=""></div>
+            <div class="carousel-container">
+                <div class="carousel-content">
+                    <h2 class="font-color-white">
+                        <%if(message.length>0){%>
+                            <div class="alert alert-success" role="alert">
+                                <%=message%>
+                              </div>
+                              <%}%>
+                        <%if(error.length>0){%>
+                            <div class="alert alert-danger" role="alert">
+                                <%=error%>
+                              </div>
+                              <%}%>
+                              Find Jobs Now more Easy Way</h2>
+                    <p class="font-color-white">An employment website is a website that deals specifically with employment or careers. Many employment websites are designed to allow employers to post job requirements for a position to be filled and are commonly known as job boards</p>
+                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                            class=" material-icons play">play_arrow</i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+   <br>
+   <br>
+   <br>
+
+
+    <section id="Job-Category">
+        <div class="container">
+            <h3 class="text-center">Choose Job Category</h3>
+            <div class="vertical-space-30"></div>
+            <p class="max-width">Jobseekers can find different types of job from these category
+            </p>
+            <div class="vertical-space-60"> </div>
+            <div class="row">
+                <%if(displayData.length >0){
+                    for(let data of displayData){ 
+                        if(data.status){%>
+                <div class="col-lg-3 col-md-6 max-width-50">
+                    <div class="box background-color-white-light">
+                        <div class="circle">
+                            <img src="/<%=data.image%>" height="60px" width="65px" alt="">
+                        </div>
+                        <h6><%=data.category%></h6>
+                        <a href="/<%=data.category%>" class="button job_post" >View more </a>
+                    </div>
+                </div>
+               <%}}}%>
+            </div>
+            <div class="vertical-space-40"></div>
+           
+        </div>
+        <div class="vertical-space-85"></div>
+    </section>
+
+
+    <section id="resent-job-post" class="background-color-white">
+        <div class="vertical-space-85"></div>
+        <div class="container text-center">
+            <h3 class="text-center">Recent Job Post</h3>
+            <div class="vertical-space-30"></div>
+            <p class="max-width">Here are some list of recent jobs posted by recruiters
+            </p>
+            <div class="vertical-space-60"></div>
+            <% if(displayData2.length>0){
+                for(let data3 of displayData2){ %>
+            <div class="detail">
+                <div class="media display-inline text-align-center">
+                    <img src="<%=data3.image%>" height="50px" width="50px" alt="image" class="mr-3 ">
+                    <div class="media-body text-left  text-align-center">
+                        <h6><%=data3.jobtitle%></h6>
+                        <i class="large material-icons">account_balance</i>
+                        <span class="text"><%=data3.company%></span>
+                        <br />
+                        <i class="large material-icons">place</i>
+                        <span class="text font-size"><%=data3.location%></span>
+                        <div class="float-right margin-top text-align-center">
+                            <a href="#" class="part-full-time"><%=data3.job_nature%></a>
+                            <p class="date-time">Deadline: <%=data3.deadline.toDateString()%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }}%>
+        </div>
+        <div class="vertical-space-60"></div>
+    </section>
+
+
+    <section id="Featuread-Company">
+        <div class="vertical-space-85"></div>
+        <div class="container text-center">
+            <h3 class="text-center">Featuread Company</h3>
+            <div class="vertical-space-30"></div>
+            <p class="max-width">Here are some list of companies you might be interested
+            </p>
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    
+                    <div class="owl-carousel Featuread-Company-carousel">
+                        <% if(displayData2.length>0){
+                            for(let data3 of displayData2){ %>
+                        <a href="#" class="Featuread-Company-item">
+                            
+                            <div class="media text-align-center  media1">
+                                <img src="<%=data3.image%>"  alt="image"
+                                    class=" Featuread-Company-img margin-auto">
+                                <div class="media-body text-left text-align-center ">
+                                    <h6><%=data3.company%></h6>
+                                    <i class="material-icons">account_balance</i>
+                                    <span class="text"><%=data3.company%></span>
+                                    <br />
+                                    <i class=" material-icons">place</i>
+                                    <span class="text font-size"><%=data3.location%></span>
+                                    <br />
+                                </div>
+                            </div>
+                            
+                        </a>
+                        <% }}%>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="vertical-space-85"></div>
+        </div>
+    </section>
+
+
+   
+
+
+    
+
+
+    <%-include('common/footer')%>
+
+
+    <div class="modal" id="myModal">
+        <div class="container">
+            <div class="vertical-space-85"></div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <button class="button button-rounded  close" data-dismiss="modal">&times;</button>
+                        <video class="" controls>
+                            <source src="video/Pexels_Videos_2706.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script data-cfasync="false" src="js/email-decode.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script src="js/custom.js"></script>
+    <script>
+        $(".search-icone").click(function () {
+            // $(".menu").animate({height: "100vh"});
+        });
+
+    </script>
+</body>
+
+</html>

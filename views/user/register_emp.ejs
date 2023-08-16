@@ -1,0 +1,139 @@
+<%-include('common/head')%>
+
+<body class="background-color-white">
+
+    
+    <%-include('common/nav')%>
+
+
+    <section id="post_job">
+        <div class="vertical-space-100"></div>
+        <div class="vertical-space-101"></div>
+        <div class="container">
+            <h2>Employer Registration</h2>
+           
+            <br>
+            <br>
+            <div class="container">
+                Already have an account ? <a href="/login_emp"
+                    class="font-color-orange margin-left">Employer Signin</a>
+                    <br><br>
+                    <a href="/register">Jobseeker Signup</a><span> ||  </span><a href="/login">Jobseeker Signin</a>
+            </div>
+            
+            <div class="vertical-space-60"></div>
+            <div class="job-post-box">
+                <form action="/registercreate_emp" method="post" enctype="multipart/form-data">
+                    <%if(error.length>0){%>
+                        <div class="alert alert-danger" role="alert">
+                            <%=error%>
+                          </div>
+                          <%}%>
+                          <%if(message.length>0){%>
+                            <div class="alert alert-success" role="alert">
+                                <%=message%>
+                              </div>
+                              <%}%>
+                    <div class="form-group">
+                        <label for="exampleInputJobtitle">Name</label>
+                        <input type="text" class="form-control" name="name"
+                            placeholder="Enter your name" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputCompany">Email</label>
+                                <input type="email" class="form-control" name="email"
+                                    placeholder="Enter your email" required />
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputLoction">Contact.No</label>
+                                <input type="number" class="form-control" name="contact"
+                                    placeholder="Enter your contact number" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputLoction">Address</label>
+                                <input type="text" class="form-control" name="address"
+                                    placeholder="Enter your address" required />
+                            </div>
+                        </div>
+                        
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputLoction">Profile Picture</label>
+                                    <input type="file" class="form-control" name="image"
+                                        placeholder="Enter your profile-picture" required />
+                                </div>
+                            </div>
+                            <div class=" col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="">About Yourself</label>
+                                    <textarea class="form-control" name="yourself" placeholder="Write about yourself" rows="12" required></textarea>
+                                </div>
+                            </div>
+            
+                            
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputCompany">Company</label>
+                                    <input type="text" class="form-control" name="company"
+                                        placeholder="Enter your Company" required />
+                                </div>
+                            </div>
+                            </div>
+                        
+                            <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputCompany">Password</label>
+                                    <input type="password" class="form-control" name="password"
+                                        placeholder="Enter your password" required />
+                                </div>
+                            </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputCompany">Confirm Password</label>
+                                        <input type="password" class="form-control" name="cpassword"
+                                            placeholder="Enter your password" required />
+                                    </div>
+                                
+                    </div>
+                </div>
+                    
+                    
+                    
+                   
+                    
+                    <button type="submit" class="btn Post-Job-Offer">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <%-include('common/footer')%>
+
+
+    <script data-cfasync="false" src="js/email-decode.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script src="js/custom.js"></script>
+    <script>
+        (function (e, t, n) {
+            var r = e.querySelectorAll("html")[0];
+            r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2");
+        })(document, window, 0);
+    </script>
+</body>
+
+</html>

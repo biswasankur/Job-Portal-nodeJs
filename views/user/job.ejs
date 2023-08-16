@@ -1,0 +1,149 @@
+<%-include('common/head')%>
+
+<body>
+
+<%-include('common/nav')%>
+    
+
+
+    <section id="intro">
+        <div class="carousel-item active">
+            <div class="carousel-background"><img src="imags/slider/slider1.jpg" alt=""></div>
+            <div class="carousel-container">
+                <div class="carousel-content">
+                    <h2 class="font-color-white">Find Jobs Now more Easy Way</h2>
+                    <p class="font-color-white">You can select any job from our platform as it provides a wide variety of jobs posted by recruiters from time to time.All the Best </p>
+                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                            class=" material-icons play">play_arrow</i></a>
+                </div>
+            </div>
+           
+        </div>
+        
+    </section>
+
+<style>
+    #s{
+margin-left: 380px;
+    }
+</style>
+   
+    <div id="search-box" class="margin-none">
+        <div class="container search-box">
+            <form action="/search" method="post" id="search-box_search_form_3"
+                class="search-box_search_form d-flex flex-lg-row flex-column align-items-center justify-content-between ">
+                <div class="d-flex flex-row align-items-center justify-content-start inline-block">
+                    <span class="large material-icons search">search</span>
+                    <input id="s" name="input" class="search-box_search_input" placeholder="Search Company" required="required"
+                        type="search">
+                   
+                   
+                </div>
+                <button type="submit" class="search-box_search_button">Search Jobs</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="resent-job-post" class="background-color-white-drak">
+        <div class="vertical-space-85"></div>
+        <div class="container text-center">
+            <h4 class="text-left">Filter Jobs Result</h4>
+            <div class="vertical-space-30"></div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="Job-Category-box">
+                        <p class="title">Job Category</p>
+                        <ul>
+                        <%if(displayData2.length >0){
+                            for(let data of displayData2){
+                                if(data.status){%>
+
+                            <li class="list-item1 "><a href="/<%=data.category%>" class="font-color-black"><%=data.category%></a></li>
+                            <%}}}%>
+                        </ul>
+                    </div>
+                
+                    
+                
+                        <br><br><br>
+                    <div class="Industry-box">
+                        <p class="title">Job Time</p>
+                        <ul>
+                            <li class="deactivate"><a href="/Full-Time" class="font-color-black">Full Time jobs</a></li>
+                            <li class="list-item1 "><a href="/Part-Time" class="font-color-black">Part Time jobs</a></li>
+                            <li class="list-item1 "><a href="/Freelancer" class="font-color-black">Freelancer</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8 col-md-12">
+                    
+                    <div class="detail width-100 ">
+                        <%if(displayData.length>0){
+                            for(let data of displayData){
+                                if(data.status){%>
+                        <div class="media display-inline text-align-center">
+                            <img src="<%=data.image%>" height="50px" width="50px" alt="John Doe" class="mr-3 ">
+                            <div class="media-body text-left  text-align-center">
+                                <h6><a href="/viewjob/<%=data._id%>" class="font-color-black"><%=data.jobtitle%></a>
+                                </h6>
+                                <i class="large material-icons">account_balance</i>
+                                <span class="text"><%=data.company%></span>
+                                <br />
+                                <i class="large material-icons">place</i>
+                                <span class="text font-size"><%=data.location%></span>
+                                <br>
+                                <span class="text font-size"><%=data.category%></span>
+                                <br>
+                                <div class="float-right margin-top text-align-center">
+                                    <a href="/viewjob/<%=data._id%>" class="part-full-time">View</a>
+                                    <p class="date-time">Deadline:<%=data.deadline.toDateString()%></p>
+                                </div>
+                            </div>
+                        </div>
+                        <%}}}%>
+                    </div>
+                    
+                    
+                    
+                    <div class="vertical-space-20"></div>
+                    <div class="vertical-space-25"></div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="vertical-space-60"></div>
+    </section>
+
+
+    <%-include('common/footer')%>
+
+
+    <div class="modal" id="myModal">
+        <div class="container">
+            <div class="vertical-space-85"></div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <button class="button button-rounded  close" data-dismiss="modal">&times;</button>
+                        <video class="" controls>
+                            <source src="video/Pexels_Videos_2706.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
